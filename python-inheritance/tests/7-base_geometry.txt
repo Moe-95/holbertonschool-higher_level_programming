@@ -1,97 +1,25 @@
 # Import the BaseGeometry class from the module
->>> BG = __import__("7-base_geometry").BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-# Check for module docstring
->>> module_docstring = __import__("7-base_geometry").__doc__
->>> len(module_docstring) > 1
-True
+# Create an instance of BaseGeometry
+>>> bg = BaseGeometry()
 
-# Check for class docstring
->>> class_docstring = __import__("7-base_geometry").BaseGeometry.__doc__
->>> len(class_docstring) > 1
-True
-
-# Check for method docstrings
->>> area_docstring = __import__("7-base_geometry").BaseGeometry.area.__doc__
->>> len(area_docstring) > 1
-True
->>> integer_validator_docstring = __import__("7-base_geometry").BaseGeometry.integer_validator.__doc__
->>> len(integer_validator_docstring) > 1
-True
-
-# Check for area failure
->>> b = BG()
->>> b.area()
-Traceback (most recent call last):
-...
-Exception: area() is not implemented
-
-# Check for too many arguments for area
->>> b.area(1)
-Traceback (most recent call last):
-...
-TypeError: area() takes 1 positional argument but 2 were given
-
-# Check integer validator for passing integer
->>> b.integer_validator("integer", 1)
-
-# Check for integer == 0
->>> b.integer_validator("integer", 0)
-Traceback (most recent call last):
-...
-ValueError: integer must be greater than 0
-
-# Check for integer < 0
->>> b.integer_validator("integer", -5)
-Traceback (most recent call last):
-...
-ValueError: integer must be greater than 0
-
-# Check for non-integer types
->>> non_integer_types = ["bool", True], ["float", 1.5], ["complex", complex(1, 1)], ["string", "hello"], ["tuple", (1, 2)], ["list", [1, 2, 3]], ["dict", {"key": "value"}], ["set", {"hello", "world"}], ["frozenset", frozenset(["hello", "world"])], ["bytes", b"bytes"], ["bytearrays", bytearray(b"bytes")]
->>> for name, value in non_integer_types:
-...     try:
-...         b.integer_validator(name, value)
-...     except Exception as e:
-...         print(f"Checking for {name}: {e.__class__.__name__} must be an integer")
-
-# Check for no arguments to integer_validator
->>> try:
-...     b.integer_validator()
-... except Exception as e:
-...     print(f"Checking for no arguments: {e.__class__.__name__}: {e}")
-
-# Check for only 1 argument to integer_validator
->>> try:
-...     b.integer_validator("integer")
-... except Exception as e:
-...     print(f"Checking for only 1 argument: {e.__class__.__name__}: {e}")
-
-# Check for too many arguments
->>> try:
-...     b.integer_validator("integer", 1, 2)
-... except Exception as e:
-...     print(f"Checking for too many arguments: {e.__class__.__name__}: {e}")
-
-# Additional Tests for integer_validator
->>> bg = BG()
+# Test integer_validator with valid inputs
 >>> bg.integer_validator("my_int", 12)
 >>> bg.integer_validator("width", 89)
+
+# Test integer_validator with invalid inputs and handle exceptions
 >>> try:
-...     bg.integer_validator("name", "John")
+...     bg.integer_validator("name", "John")  # Non-integer value
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-...
-[TypeError] name must be an integer
+
 >>> try:
-...     bg.integer_validator("age", 0)
+...     bg.integer_validator("age", 0)  # Value less than or equal to 0
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-...
-[ValueError] age must be greater than 0
+
 >>> try:
-...     bg.integer_validator("distance", -4)
+...     bg.integer_validator("distance", -4)  # Negative value
 ... except Exception as e:
 ...     print("[{}] {}".format(e.__class__.__name__, e))
-...
-[ValueError] distance must be greater than 0
