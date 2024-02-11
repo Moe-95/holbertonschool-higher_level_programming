@@ -1,10 +1,22 @@
 #!/usr/bin/python3
+"""
+Module for reading a text file.
+"""
 
-def write_file(filename="", text=""):
-    """Write the given text to the specified file and return the number of characters written."""
-    with open(filename, 'w') as file:
-        return file.write(text)
+
+def read_file(filename=""):
+    """
+    Reads a text file (UTF8) and prints it to stdout.
+
+    Args:
+        filename (str): The name of the file to read.
+
+    Returns:
+        None
+    """
+    with open(filename, encoding="utf-8") as file:
+        print(file.read(), end="")
+
 
 if __name__ == "__main__":
-    nb_characters = write_file("my_first_file.txt", "This School is so cool!\n")
-    print(nb_characters)
+    read_file("my_file_0.txt")
