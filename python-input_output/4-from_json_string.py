@@ -1,11 +1,11 @@
 #!/usr/bin/python3
+"""
+From JSON string to Object module
+"""
+
 import json
 
-def from_json_string(my_str):
-    """Return the Python data structure represented by the given JSON string."""
-    return json.loads(my_str)
 
-if __name__ == "__main__":
-    s_my_list = "[1, 2, 3]"
-    my_list = from_json_string(s_my_list)
-    print(my_list)
+def from_json_string(my_str):
+    """Returns an object (Python data structure) represented by a JSON string"""
+    return json.loads(my_str)
