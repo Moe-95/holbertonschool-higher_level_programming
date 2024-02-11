@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 
 def read_file(filename=""):
-    """Read and print the contents of a text file."""
-    with open(filename, 'r') as file:
-        print(file.read())
+    """Read a text file (UTF-8) and print its contents to stdout."""
+    with open(filename, 'r', encoding='utf-8') as file:
+        print(file.read(), end="")
 
 
 if __name__ == "__main__":
