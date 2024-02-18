@@ -91,7 +91,7 @@ class Base:
             list_instances = []
             for i in range(len(a_list)):  # a_list[i]: dictionary of attributes
                 list_instances.append(cls.create(**a_list[i]))
-        except:
+        except Exception as e:
             list_instances = []
 
         return list_instances
@@ -134,7 +134,7 @@ class Base:
             list_instances = []
             for i in range(len(a_list)):  # a_list[i]: dictionary of attributes
                 list_instances.append(cls.create(**a_list[i]))
-        except:
+        except Exception as e:
             list_instances = []
 
         return list_instances
