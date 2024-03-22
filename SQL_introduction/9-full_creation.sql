@@ -1,4 +1,5 @@
 -- create table with values
+-- Execute: cat 9-full_creation.sql | mysql -hlocalhost -uroot -p hbtn_0c_0
 USE hbtn_0c_0;
 CREATE TABLE IF NOT EXISTS second_table (
     id INT,
