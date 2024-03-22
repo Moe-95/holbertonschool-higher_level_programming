@@ -1,4 +1,4 @@
---create table with values
+-- create table with values
 USE hbtn_0c_0;
 CREATE TABLE IF NOT EXISTS second_table (
     id INT,
