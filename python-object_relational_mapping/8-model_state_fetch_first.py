@@ -8,6 +8,7 @@ from model_state import Base, State
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import SQLAlchemyError
 
 if __name__ == "__main__":
     engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
