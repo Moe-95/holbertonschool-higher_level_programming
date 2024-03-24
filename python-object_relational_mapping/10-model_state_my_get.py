@@ -22,4 +22,3 @@ if __name__ == "__main__":
     except:
         print("Not found")
     session.close()
-    

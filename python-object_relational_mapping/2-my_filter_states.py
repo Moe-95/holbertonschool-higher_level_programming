@@ -16,4 +16,3 @@ if __name__ == "__main__":
     rows = cursor.fetchall()
     for state in rows:
         print(state)
-        

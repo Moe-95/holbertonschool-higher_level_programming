@@ -16,4 +16,3 @@ if __name__ == "__main__":
     for state in rows:
         if state[1][0] == 'N':
             print(state)
-            

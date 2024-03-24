@@ -22,4 +22,3 @@ if __name__ == "__main__":
     print(str(newState.id))
     session.commit()
     session.close()
-    

@@ -17,4 +17,3 @@ if __name__ == "__main__":
                     ORDER BY cities.id ASC", (argv[4],))
     rows = cursor.fetchall()
     print(", ".join([location[0] for location in rows]))
-    
